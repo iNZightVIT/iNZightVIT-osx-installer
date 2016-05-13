@@ -1,0 +1,14 @@
+prefix=/Library/Frameworks/GTK+.framework/Versions/2.24.X11/Resources
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+gmodule_supported=true
+
+Name: GModule
+Description: Dynamic module loader for GLib
+Requires: glib-2.0
+Version: 2.36.0
+Libs: -L${libdir} -lgmodule-2.0 
+Libs.private: 
+Cflags: -D_REENTRANT
