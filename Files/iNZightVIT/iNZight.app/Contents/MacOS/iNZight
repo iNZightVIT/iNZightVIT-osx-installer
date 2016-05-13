@@ -1,0 +1,3 @@
+#!/bin/sh
+export R_DIR="/Applications/iNZightVIT/iNZight.app/Contents/MacOS/"
+open -a R $R_DIR
