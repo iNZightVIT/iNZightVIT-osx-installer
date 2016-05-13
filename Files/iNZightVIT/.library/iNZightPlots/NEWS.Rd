@@ -2,6 +2,34 @@
 \title{NEWS file for the iNZightPlots package}
 \encoding{UTF-8}
 
+\section{Changes in Version 2.4}{
+  RELEASE DATE: TBA
+
+  \subsection{MAJOR CHANGES}{
+    \itemize{
+      \item made it possible to create new methods for plots (as done in
+      iNZightMaps).
+      \item allow any colour function to be specified (at least, any
+      that take a single argument \code{n})
+    }
+  }
+
+  \subsection{MINOR CHANGES}{
+    \itemize{
+      \item changes to resizing algorithm (optional change between the
+      two)
+      \item background color now applies to INSIDE the plot, not the
+      entire graphics window
+    }
+  }
+
+  \subsection{BUG FIXES}{
+    \itemize{
+      \item subsetting bug fix in dot plots and histograms
+    }
+  }
+}
+
 \section{Changes in Version 2.3}{
   RELEASE DATE: 1 October 2015
 
