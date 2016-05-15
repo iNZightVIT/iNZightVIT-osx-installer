@@ -1,2 +1,2 @@
 dbCopy:
-	cp build/iNZightVIT-OSX-installer.pkg ~/Dropbox/iNZight
+	cp build/iNZightVIT.pkg ~/Dropbox/iNZight/iNZightVIT-osx-installer.pkg
