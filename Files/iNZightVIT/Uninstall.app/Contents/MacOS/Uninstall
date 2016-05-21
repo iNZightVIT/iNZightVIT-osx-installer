@@ -1,0 +1,19 @@
+#!/bin/sh
+
+rm -rf /Library/Frameworks/GTK+.framework
+
+rm -rf /Applications/iNZightVIT
+
+rm -rf /Library/Frameworks/R.framework
+rm -rf /Applications/R.app
+
+rm -rf /Applications/Utilities/XQuartz.app
+rm -rf /Library/LaunchAgents/org.macosforge.xquartz.startx.plist
+rm -rf /Library/LaunchDaemons/org.macosforge.xquartz.privileged_startx.plist
+rm -rf /opt/X11
+rm -rf /usr/X11
+
+pkgutil --forget org.gtk.GTK
+pkgutil --forget nz.ac.auckland.iNZightVIT
+pkgutil --forget org.R-project.R
+pkgutil --forget org.macosforge.xquartz.X11

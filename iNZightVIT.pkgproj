@@ -2106,7 +2106,40 @@
 								<key>PACKAGE_UUID</key>
 								<string>45F9889A-6E31-42D1-8CFC-6E3F2DBF06D1</string>
 								<key>REQUIREMENTS</key>
-								<array/>
+								<array>
+									<dict>
+										<key>BEHAVIOR</key>
+										<integer>1</integer>
+										<key>DICTIONARY</key>
+										<dict>
+											<key>IC_REQUIREMENT_FILES_CONDITION</key>
+											<integer>1</integer>
+											<key>IC_REQUIREMENT_FILES_DISK_TYPE</key>
+											<integer>0</integer>
+											<key>IC_REQUIREMENT_FILES_LIST</key>
+											<array>
+												<string>/Applications/iNZightVIT</string>
+											</array>
+											<key>IC_REQUIREMENT_FILES_SELECTOR</key>
+											<integer>0</integer>
+										</dict>
+										<key>IDENTIFIER</key>
+										<string>fr.whitebox.Packages.requirement.files</string>
+										<key>MESSAGE</key>
+										<array>
+											<dict>
+												<key>LANGUAGE</key>
+												<string>English</string>
+												<key>VALUE</key>
+												<string>iNZightVIT is already installed. Either run the Updater, or delete the entire iNZightVIT folder from Applications and try the installer again.</string>
+											</dict>
+										</array>
+										<key>NAME</key>
+										<string>Files</string>
+										<key>STATE</key>
+										<true/>
+									</dict>
+								</array>
 								<key>TITLE</key>
 								<array/>
 								<key>TOOLTIP</key>
