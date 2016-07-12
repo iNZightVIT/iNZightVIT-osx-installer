@@ -1,0 +1,253 @@
+library(tools)
+news2Rd
+tools:::news2Rd
+news(package = "iNZightPlots")
+news("version 2.3", package = "iNZightPlots")
+news(version > 2.3, package = "iNZightPlots")
+news(Version >= "2.3", package = "iNZightPlots")
+news(Version >= "2.2", package = "iNZightPlots")
+db <- news()
+db
+db <- news(package = "iNZightPlots")
+db
+names(db)
+db$Version
+version$Category
+db[,]
+class(db)
+unclass(db)
+db$Category
+db
+library(gWidgets2)
+w <- gwindow()
+g <- gvbox(cont = w)
+t <- gtext(db, cont = g)
+tt <- capture.output(db)
+tt
+dispose(w)
+w <- gwindow()
+g <- gvbox(cont = w)
+ttp <- paste(tt, collapse = "\n")
+gtext(ttp, cont = g)
+gtext(ttp, cont = g, height = 300)
+gtext(ttp, cont = g, height = 600)
+w <- gwindow(); g <- gvbox(cont = w, expand = TRUE, fill = TRUE)
+gtext(ttp, cont = g)
+gtext(ttp, cont = g, height = 300)
+w <- gwindow(); g <- gvbox(cont = w, expand = TRUE, fill = TRUE)
+gtext(ttp, cont = g, fill = TRUE, expand = TRUE)
+q()
+install.packages("colourspace")
+install.packages("colorspace")
+library(colorspace)
+?colorspace
+help(package='colorspace')
+choose_palette()
+install.packages("dichromat")
+choose_palette()
+colFn <- choose_palette()
+colFn
+colFn(10)
+choose_palette
+help(package='colorspace')
+if(interactive()) {#
+pal <- choose_palette()#
+filled.contour(volcano, color.palette = pal, asp = 1)#
+}
+filled.contour
+??filled.contour
+getwd()
+System()
+options(warn=0)
+System()
+options(warn=1)
+System()
+.Platform
+.libPaths()
+library(iNZight)
+.libPaths("~/iNZight/iNZight-v3/iNZight.app/Contents/MacOS/Library/library")
+library(iNZight)
+q()
+p = c(0.531, 0.295, 0.174)
+sum(p)
+pie(p)
+z=19
+x=seq(10, 30, by = 0.5)
+y = sqrt(z^2 - x^2)
+x^2
+y = z^2 - x^2
+y
+x
+19^2
+x=seq(5, 19, by = 0.5)
+y = sqrt(z^2 - x^2)
+y
+sqrt(17^2 + 13^2)
+Sys.time()
+x=sample(1:10)
+system.time(class(x) == "numeric")
+system.time(class(x) %in% "numeric")
+test <- function(expr)
+for (i in 1:1000) expr()
+system.time(test(class(x) %in% "numeric"))
+system.time(expr = test(class(x) %in% "numeric"))
+test <- function(expr) {}
+test <- function(expr) {
+system.time({ for (i in 1:1000) expr() })
+}
+test(class(x) == "numeric")
+system.time({ for (i in 1:1000) eval(expr) })
+system.time({ for (i in 1:1000) class(x) == "numeric" })
+system.time({ for (i in 1:1000) class(x) %in% "numeric" })
+system.time({ for (i in 1:10000) class(x) %in% "numeric" })
+system.time({ for (i in 1:10000) class(x) = "numeric" })
+system.time({ for (i in 1:1e6) class(x) = "numeric" })
+system.time({ for (i in 1:1e6) class(x) %in% "numeric" })
+system.time({ for (i in 1:1e6) is.numeric(x) })
+1.566 / 0.106
+1.566 / 0.816
+X = 0.5 * (rbinom(1000, 1, 0.5) + 1)
+X
+X = rbinom(1000, 1, 0.5) * 2 - 1
+X
+Sn = function(n) sum(X[1:n])
+Sn(5)
+Sn(3)
+Sn(10)
+n = 10
+m = 1000
+X = matrix(rbinom(n^2 * m, 1, 0.5) * 2 - 1, nrow = m)
+dim(X)
+X
+X[1,]
+apply(X, 1, function(x) {
+sum(x[1:(sum(x[1:n])^2)])
+})
+apply(X, 1, function(x)
+sum(x[1:(sum(x[1:n])^2)]) )
+apply(X, 1, function(x) sum(x[1:(sum(x[1:n])^2)]) ) -> S
+mean(S)
+run = function(n, m) {}
+run = function(n, m) {
+X = matrix(rbinom(n^2 * m, 1, 0.5) * 2 - 1, nrow = m)
+apply(X, 1, function(x) sum(x[1:(sum(x[1:n])^2)]) )
+}
+run(10, 1000)
+run = function(n, m) {
+X = matrix(rbinom(n^2 * m, 1, 0.5) * 2 - 1, nrow = m)
+mean(apply(X, 1, function(x) sum(x[1:(sum(x[1:n])^2)]) ))
+}
+run(10, 1000)
+run(10, 10000)
+run(10, 1e5)
+run(10, 1e6)
+run = function(n, m) {
+X = matrix(rbinom(n^2 * m, 1, 0.5) * 2 - 1, nrow = m)
+S = apply(X, 1, function(x) sum(x[1:(sum(x[1:n])^2)]) )
+c(mean(S), var(S))
+}
+run(10, 100)
+results = matrix(nrow = 100, ncol = 2)
+for (i in seq(10, 1e6, length = 100))
+{}
+Ns = seq(10, 1e6, length = 100)
+Ns
+Ns = c(100, 500, 1000, 2000, 5000, 1e4, 5e4, 1e5, 5e5, 1e6)
+results = matrix(nrow = length(Ns), ncol = 2)
+results
+for (i in seq_along(Ns))
+results[i, ] <- run(10, Ns[i])
+results
+plot(Ns, results[,1])
+plot(Ns, results[,1], type = 'l')
+abline(h = 0, lty = 3)
+ls()
+.libPaths()
+installed.packages()[, "Package"]
+tcltk::tkpopup("hello")
+library(tcltk)
+?tkmessage
+tkmessage(NULL, "hello")
+install.packages
+?install.packages
+f = function(a, b, n) (1 - cos(2 * pi * n * a / b))
+a = 10
+b = 12
+f(a, b, 1:10)
+f(a, b, 2 * b)
+f(a, b, 4 * b)
+f(a, b, 5 * b)
+f(a, b, b)
+f(a, b, b/2)
+f(a, b, b/4)
+f(a, b, b * 1:10)
+f(a, b, b/2 * 1:10)
+f(a, b, b/4 * 1:10)
+f(a, b, b/2 * 1:10)
+cos(2 * pi)
+1 - 1
+cos(pi)
+cos(3*pi)
+f(a, b, b * 1:10)
+f(a, b, b/4 * 1:10)
+f(a, b, b/4/a * 1:10)
+f(a, b, b/a * 1:10)
+f(a, b, b/4 * 1:10)
+f(a, b, 3*b/4 * 1:10)
+f(a, b, 1*b/4 * 1:10)
+f(a, b, b/4 * ((0:9)*2-1)
+)
+f(a, b, b/4 * ((0:9)*2-1))
+f(a, b, b/2 * ((0:9)*2-1))
+f(a, b, b/2 * ((0:9)*2))
+f(a, b, b * (2 * a + 1) / a)
+f(a, b, b * (2 * a) / a)
+f(a, b, b * (2 * a + 1) / 2 / a)
+f(a, b, b * (2 * a + 1) / 2 / a * 1:10)
+f = function(a, b, n)
+}
+f = function(x, n) (1 - cos(2 * pi * n * x) * (x > 0 & x < 1))
+a = 6
+b = 13
+k = 1:10
+nk = (k * b * (2 * a + 1)) / (2 * a)
+nk
+nk * a / b
+nk * a / b * 2
+f(a/b, 13)
+f(a/b, 26)
+f(a/b, nk)
+f(a/b, nk * a / b * 2)
+floor(nk)
+f(a/b, floor(nk))
+f(a/b, 1:50)
+f(a/b, 1:50)==2
+f(a/b, 1:50)
+f(32643/1232464543, 1:5000)
+f(32643/1232464543, 1:5000)==1
+f(32643/1232464543, 1:5000)==0
+f(3264/4543, 1:5000)==0
+.libPaths("~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library")
+f(a/b, 1:50)in
+install.pacakges("hextri", repos="http://cran.stat.auckland.ac.nz", type="source")
+install.packages("hextri", repos="http://cran.stat.auckland.ac.nz", type="source")
+install.packages("dichromat", repos="http://cran.stat.auckland.ac.nz", type="source")
+install.packages("~/iNZight/iNZightTS", repos = NULL, type = "source")
+install.packages("~/iNZight/iNZightMR", repos = NULL, type = "source")
+install.packages("~/iNZight/iNZightRegression", repos = NULL, type = "source")
+install.packages("~/iNZight/iNZightPlots", repos = NULL, type = "source")
+install.packages("~/iNZight/iNZightModules", repos = NULL, type = "source")
+install.packages("~/iNZight/iNZight", repos = NULL, type = "source")
+q()
+.libPaths()
+.libPaths("/Applications/iNZightVIT/.library/")
+.libPaths()
+installed.packages()
+.libPaths("/Applications/iNZightVIT/.library/")
+install.packages("~/iNZight/iNZightMR", repos=NULL, type="source")
+install.packages("~/iNZight/iNZightTS", repos=NULL, type="source")
+install.packages("~/iNZight/iNZightRegression", repos=NULL, type="source")
+install.packages("~/iNZight/iNZightPlots", repos=NULL, type="source")
+install.packages("~/iNZight/iNZight", repos=NULL, type="source")
+install.packages("~/iNZight/iNZightModules", repos=NULL, type="source")
+q()
