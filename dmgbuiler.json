@@ -1,0 +1,19 @@
+{
+  "title": "iNZightVIT",
+  "background": "background.jpg",
+  "window": {
+    "size": {
+      "width": 800,
+      "height": 450
+    }
+  },
+  "icon-size": 48,
+  "text-size": 12,
+  "contents": [
+    { "x": 400, "y": 174, "type": "file", "path": "Files/GTK_2.24.17-X11.pkg" },
+    { "x": 545, "y": 174, "type": "file", "path": "Files/XQuartz-2.7.9.pkg" },
+    { "x": 670, "y": 174, "type": "file", "path": "Files/R-3.2.4.pkg" },
+    { "x": 400, "y": 328, "type": "file", "path": "Files/iNZightVIT" },
+    { "x": 670, "y": 328, "type": "link", "path": "/Applications" }
+  ]
+}

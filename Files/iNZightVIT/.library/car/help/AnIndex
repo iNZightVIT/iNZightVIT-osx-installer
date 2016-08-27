@@ -20,6 +20,7 @@ Anova.polr	Anova
 Anova.rlm	Anova
 Anova.svyglm	Anova
 Anscombe	Anscombe
+as.data.frame.univaov	Anova
 av.plot	car-deprecated
 av.plots	car-deprecated
 avp	avPlots
@@ -237,6 +238,7 @@ print.linearHypothesis.mlm	linearHypothesis
 print.outlierTest	outlierTest
 print.spreadLevelPlot	spreadLevelPlot
 print.summary.Anova.mlm	Anova
+print.univaov	Anova
 printHypothesis	linearHypothesis
 probabilityAxis	TransformationAxes
 qq.plot	car-deprecated

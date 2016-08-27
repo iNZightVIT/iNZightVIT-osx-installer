@@ -1,5 +1,5 @@
 ## set library path
-.libPaths("../../../.library")
+.libPaths("/Applications/iNZightVIT/.library")
 pkgs <- c("iNZight", "iNZightPlots", "iNZightMR",
           "iNZightModules", "iNZightRegression", "iNZightTS",
           "iNZightTools", "vit")
@@ -9,7 +9,8 @@ repo <- c("http://r.docker.stat.auckland.ac.nz/R",
 ## check iNZight installed ...
 if (!all(pkgs %in% utils::installed.packages()[, "Package"])) {
   cat("Please wait while iNZight is installed ...\n")
-  utils::install.packages(pkgs, repos = repo)
+  utils::install.packages(pkgs, repos = repo, lib = "/Applications/iNZightVIT/.library",
+                          type = "binary", dependencies = TRUE)
   cat("\nDone!\n")
 }
 

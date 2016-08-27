@@ -244,6 +244,7 @@ svyolr.svyrep.design	svyolr
 svyplot	svyplot
 svyplot.default	svyplot
 svyprcomp	svyprcomp
+svypredmeans	svypredmeans
 svyquantile	svyquantile
 svyquantile.survey.design	svyquantile
 svyquantile.svyrep.design	svyquantile

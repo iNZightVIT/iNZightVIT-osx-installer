@@ -2,41 +2,6 @@
 \title{NEWS file for the iNZightPlots package}
 \encoding{UTF-8}
 
-\section{Changes in Version 2.5}{
-  RELEASE DATE: 11 July 2016
-
-  \subsection{MAJOR CHANGES}{
-    \itemize{
-      \item made it possible to create new methods for plots (as done in
-      iNZightMaps).
-      \item allow any colour function to be specified (at least, any
-      that take a single argument \code{n})
-      \item allow colour by in hex plots
-
-    }
-  }
-
-  \subsection{MINOR CHANGES}{
-    \itemize{
-      \item changes to resizing algorithm (optional change between the
-      two)
-      \item background color now applies to INSIDE the plot, not the
-      entire graphics window
-      \item allow setting symbol by a variable
-      \item hex is now the default plot for large data sets
-      \item size of "large" data sets increased to 5001
-      \item allow control of line type
-    }
-  }
-
-  \subsection{BUG FIXES}{
-    \itemize{
-      \item subsetting bug fix in dot plots and histograms
-      \item many other minor bugs fixed while implementing changes
-    }
-  }
-}
-
 \section{Changes in Version 2.3}{
   RELEASE DATE: 1 October 2015
 
@@ -67,7 +32,7 @@
   }
   \subsection{PATCH 2.3.4 - 13/10/2015}{
     \itemize{
-      \item continuing from 2.3.3, but now use independent covariances
+      \item continuing from 2.3.3, but now use independent covariances 
     }
   }
   \subsection{PATCH 2.3.4 - 13/10/2015}{
@@ -122,7 +87,7 @@
     \itemize{
       \item allow zooming of plots with the new \code{zoom}
       argument. Works for both univariate and bivariate plots, and a
-      related funcionality for 'zooming in' on bars in a barplot.
+      related funcionality for 'zooming in' on bars in a barplot. 
     }
   }
 
@@ -148,14 +113,14 @@
 
 \section{Changes in Version 2.0.5}{
   RELEASE DATE: 27 July 2015
-
+  
   \subsection{NEW FEATURES}{
     \itemize{
       \item additional arguments `xlim` and `ylim` allow users to
       specify the range of values shown on the plot
     }
   }
-
+  
   \subsection{BUG FIXES}{
     \itemize{
       \item several issues for dotplots have been fixed
@@ -171,7 +136,7 @@
 
 \section{Changes in Version 2.0.3}{
   RELEASE DATE: 01 July 2015
-
+  
   \subsection{BUG FIXES}{
     \itemize{
       \item fix up the order of bars in segmented bar plots to
@@ -182,7 +147,7 @@
 
 \section{Changes in Version 2.0.2}{
   RELEASE DATE: 24 June 2015
-
+  
   \subsection{MINOR CHANGES}{
     \itemize{
       \item remove facility where the colour-by variable is ignored if
@@ -194,7 +159,7 @@
 
 \section{Changes in Version 2.0.1}{
   RELEASE DATE: 16 June 2015
-
+  
   \subsection{MINOR CHANGES}{
     \itemize{
       \item Dotplot locating implemented using new methodology, with the
@@ -207,7 +172,7 @@
       numeric(1)`.
     }
   }
-
+  
   \subsection{BUG FIXES}{
     \itemize{
       \item fixed a small bug that stopped inference from working in
@@ -220,7 +185,7 @@
 
 \section{Changes in Version 2.0}{
   Release Date: 26 May 2015
-
+  
   \subsection{MAJOR CHANGES}{
     \itemize{
       \item The entire package has been rewritten to accomodate complex
