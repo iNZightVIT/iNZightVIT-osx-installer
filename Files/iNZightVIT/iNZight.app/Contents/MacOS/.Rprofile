@@ -15,6 +15,12 @@ if (!all(pkgs %in% utils::installed.packages()[, "Package"])) {
 }
 
 ## check for updates ...
+upd <- utils::old.packages(repos = repo[1])
+if (!is.null(upd)) {
+  ## updates are available!
+  upd <- system("osascript -e 'display dialog \"Do you want update iNZight?\" with title \"Updates Available\" buttons {\"Yes\", \"No\"} default button 2'", TRUE) == "button returned:Yes"
+  if (upd) update.packages(repos = repo[1], ask = FALSE)
+}
 
 
 ## launch iNZight
