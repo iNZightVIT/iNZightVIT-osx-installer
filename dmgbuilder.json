@@ -1,5 +1,5 @@
 {
-  "title": "iNZightVIT",
+  "title": "iNZightVIT Installer",
   "background": "background.jpg",
   "window": {
     "size": {
@@ -10,6 +10,7 @@
   "icon-size": 48,
   "text-size": 12,
   "icon": "Files/iNZightVIT/iNZight.app/Contents/Resources/Icon.icns",
+  "format": "UDBZ",
   "contents": [
     { "x": 400, "y": 174, "type": "file", "path": "Files/GTK_2.24.17-X11.pkg" },
     { "x": 545, "y": 174, "type": "file", "path": "Files/XQuartz-2.7.9.pkg" },
