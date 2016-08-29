@@ -3,12 +3,12 @@
 #########
 
 upload:
-	scp iNZightVIT-mac-installer-*.dmg iNZightVIT-selfinstall.tar.bz tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
+	scp iNZightVIT-mac-installer-*.dmg iNZightVIT-selfinstall.tar.gz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
 
 uploadDMG:
 	scp iNZightVIT-mac-installer-*.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
 uploadApp:
-	scp iNZightVIT-selfinstall.tar.bz tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
+	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
 
 
 
@@ -28,13 +28,15 @@ createDMG:
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	@appdmg dmgbuilder.json $(DMG)
 
-APP = iNZightVIT-selfinstall.tar.bz
+APP = iNZightVIT-selfinstall.tar.bz2
 createApp:
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
 	@echo Copying Application folder, removing library ...
 	@cp -r Files/iNZightVIT iNZightVIT && rm -r iNZightVIT/.library/*
 	@cp README-self.Md iNZightVIT/README.Md
+	@echo Cleaning out muck ...
+	@rm -rf iNZightVIT/._* .DS_Store
 	@echo Archiving folder ...
 	@tar -cjf $(APP) iNZightVIT
 	@echo Cleaning up ...
