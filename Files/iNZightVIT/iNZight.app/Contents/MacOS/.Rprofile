@@ -3,20 +3,22 @@ width <- options("width")
 rule <- function() cat(rep("=", width), "\n\n", sep = "")
 
 rule()
+
 ## set library path
 .libPaths("/Applications/iNZightVIT/.library")
 pkgs <- c("iNZight", "iNZightPlots", "iNZightMR",
           "iNZightModules", "iNZightRegression", "iNZightTS",
-          "iNZightTools", "vit")
+          "iNZightTools")
 repo <- c("http://r.docker.stat.auckland.ac.nz/R",
           "http://cran.stat.auckland.ac.nz")
 
 ## check iNZight installed ...
-if (!all(pkgs %in% utils::installed.packages()[, "Package"])) {
-  cat("Installing iNZight files ...")
-  utils::install.packages(pkgs, repos = repo, lib = "/Applications/iNZightVIT/.library",
+if ( ! all(pkgs %in% utils::installed.packages()[, "Package"]) ) {
+  cat("Installing iNZight files ...\n")
+  utils::install.packages(pkgs, repos = repo,
+                          lib = "/Applications/iNZightVIT/.library",
                           type = "binary", dependencies = TRUE)
-  cat(".. done!\n\n")
+  cat("Done!\n\n")
 }
 
 ## check for updates ...
@@ -25,9 +27,9 @@ if (!is.null(upd)) {
   ## updates are available!
   upd <- system("osascript -e 'display dialog \"Do you want update iNZight?\" with title \"Updates Available\" buttons {\"Yes\", \"No\"} default button 2'", TRUE) == "button returned:Yes"
   if (upd) {
-    cat("Installing updates, please wait ...")
+    cat("Installing updates, please wait ...\n")
     update.packages(repos = repo[1], ask = FALSE)
-    cat(" done.\n\n")
+    cat("Done.\n\n")
   }
 }
 
@@ -38,7 +40,7 @@ suppressMessages({
   library(iNZight)
 })
 
-cat("Launching iNZight ...")
+cat("Launching iNZight ...\n")
 
 suppressMessages({
   iNZight(disposeR = TRUE)

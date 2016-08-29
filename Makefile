@@ -3,8 +3,7 @@
 #########
 
 upload:
-	make uploadDMG
-	make uploadApp
+	scp iNZightVIT-mac-installer-*.dmg iNZightVIT-selfinstall.tar.bz tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
 
 uploadDMG:
 	scp iNZightVIT-mac-installer-*.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
