@@ -2,13 +2,7 @@
 
 #########
 
-upload:
-	scp iNZightVIT-mac-installer-*.dmg iNZightVIT-selfinstall.tar.gz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
 
-uploadDMG:
-	scp iNZightVIT-mac-installer-*.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
-uploadApp:
-	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/
 
 
 
@@ -29,6 +23,7 @@ createDMG:
 	@appdmg dmgbuilder.json $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
+APPV = 1.0
 createApp:
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
@@ -42,3 +37,9 @@ createApp:
 	@echo Cleaning up ...
 	@rm -rf iNZightVIT
 	@echo Done
+
+
+uploadDMG:
+	scp iNZightVIT-mac-installer-*.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-mac-installer-$(INZIGHT_VERSION).dmg
+uploadApp:
+	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-selfinstall-$(APPV).tar.bz2
