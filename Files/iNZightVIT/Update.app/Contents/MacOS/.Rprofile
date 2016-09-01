@@ -1,9 +1,7 @@
+VERSION <- 1.0
+
 ## set library path
-.libPaths("../../../.library")
-repo <- c("http://r.docker.stat.auckland.ac.nz/R")
+.libPaths("/Applications/iNZightVIT/.library")
 
-cat("iNZight will update itself ... \n")
-update.packages(repos = repo)
-cat("\nDone!\n")
-
-## this will actually just source a remote script ...
+## source and update:
+source("https://raw.githubusercontent.com/iNZightVIT/dev/master/update.R")
