@@ -1,3 +1,0 @@
-Files/R.framework filter=lfs diff=lfs merge=lfs -text
-Files/GTK+.framework filter=lfs diff=lfs merge=lfs -text
-Files/XQuartz filter=lfs diff=lfs merge=lfs -text
