@@ -16,7 +16,7 @@ depends:
 
 
 VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 2)
-DMG = iNZightVIT-mac-installer-$(VERSION).dmg
+DMG = iNZightVIT-mac-installer.dmg
 
 createDMG:
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
@@ -40,6 +40,8 @@ createApp:
 
 
 uploadDMG:
-	scp iNZightVIT-mac-installer-*.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-mac-installer-$(INZIGHT_VERSION).dmg
+	chmod 775 iNZightVIT-mac-installer.dmg
+	scp iNZightVIT-mac-installer.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-mac-installer-$(VERSION).dmg
 uploadApp:
+	chmod 775 iNZightVIT-selfinstall.tar.bz2
 	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-selfinstall-$(APPV).tar.bz2
