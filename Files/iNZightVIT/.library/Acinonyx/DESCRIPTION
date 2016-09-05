@@ -10,4 +10,4 @@ SystemRequirements: OpenGL, (X11 with GLX + GLU + FreeType | Windows |
 License: GPL-2
 URL: http://www.rforge.net/Acinonyx/
 Packaged: 2014-03-29 18:32:15 UTC; svnuser
-Built: R 3.3.1; x86_64-apple-darwin13.4.0; 2016-09-01 20:37:29 UTC; unix
+Built: R 3.2.4; x86_64-apple-darwin13.4.0; 2016-09-05 03:28:35 UTC; unix
