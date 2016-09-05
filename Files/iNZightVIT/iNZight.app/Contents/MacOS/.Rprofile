@@ -28,7 +28,7 @@ if (!is.null(upd)) {
   upd <- system("osascript -e 'display dialog \"Do you want update iNZight?\" with title \"Updates Available\" buttons {\"Yes\", \"No\"} default button 2'", TRUE) == "button returned:Yes"
   if (upd) {
     cat("Installing updates, please wait ...\n")
-    update.packages(repos = repo[1], ask = FALSE)
+    utils::update.packages(repos = repo[1], ask = FALSE)
     cat("Done.\n\n")
   }
 }
