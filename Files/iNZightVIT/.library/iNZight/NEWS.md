@@ -41,6 +41,25 @@ We can't list everything here, but some of the important ones are listed below.
 Given the magnitude of changes, there's little point mentioning the minor ones and bug fixes!
 
 
+
+## Patches
+
+### 3.0.1 - 23/09/2016
+
+- Fix up labels and icons so plot toolbar and plot menu match
+- Fix a bug where two-level bar plots failed to draw
+- Fix a bug where empty levels in two-way bar plots failed to draw
+- Fix locator for dot plots
+- Fix the updates available checker
+
+### 3.0.2 - 04/10/2016
+
+- Add "Updates Available" text back to the title (when they're available, of course!)
+
+### 3.0.3 - 12/10/2016
+
+- Bug fix: can now change colours of histograms
+
 ***
 # Version 2.5
 __Release date__: 08 November, 2015
