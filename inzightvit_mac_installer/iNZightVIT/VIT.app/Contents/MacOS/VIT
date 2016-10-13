@@ -1,0 +1,4 @@
+#!/bin/sh
+defaults write org.R-project.R NSAppSleepDisabled -bool YES
+export R_DIR="/Applications/iNZightVIT/VIT.app/Contents/MacOS/"
+open -a R $R_DIR
