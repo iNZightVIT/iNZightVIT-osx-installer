@@ -1,3 +1,0 @@
-#!/bin/sh
-export R_DIR="/Applications/iNZightVIT/Update.app/Contents/MacOS/"
-open -a R $R_DIR
