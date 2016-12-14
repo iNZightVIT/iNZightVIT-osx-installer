@@ -1,3 +1,30 @@
+# Version 3.1
+__Release date:__ 13 December, 2016
+
+Main changes in this update are within the Inference functions;
+t-tests performed on request.
+
+## New Features
+
+- __Hypothesis testing__: new option under Get Inference
+  - one-sample t-tests, two-sample t-tests, ANOVA, and one- and two-way Chi-square testing
+  - ability to adjust null value and alternative hypothesis in t-tests
+  - ability to specify pooled variance alternative for two-sample t-test
+- Store predicted values and residuals under Get Summary (for scatter plots and ANOVA)
+- Added `SURFIncomeSurvey` data set (200 row subset) to examples
+
+## Minor Changes
+
+- "factor" reworded to "categorical" in summary/inference output
+- some of the inference output has been adjusted slightly for consistency (see above)
+
+## Bug Fixes
+
+- Fix a bug in inference output where reorded factors' confidence intervals and p-values were _not_ reordered!
+- Fix issue where confidence intervals for two-way table row proportions were ordered incorrectly
+
+***
+
 # Version 3.0
 __Release date:__ 5 Septemer, 2016
 
@@ -12,7 +39,6 @@ Here's just a few of the major new features to iNZight.
 - Play time can now be stopped, and the interval adjusted
 - Switch variables with the one below by clicking the "down" arrow to the right of the variable box
 - __Maps Module__ - visualise geographical data:
-
   - Coordinates: if your data set includes GPS coordinates for each observation,
     iNZight will let you plot them on a map.
   - Countries: if observations have country names associated with them,
