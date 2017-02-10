@@ -1,4 +1,10 @@
-#!/bin/sh
+#!/bin/bash
+
+## check directory - if not /Applications/iNZightVIT - move
+# if [ "$(pwd)" != '/Applications/iNZightVIT' ]; then
+#   echo "You need to move iNZightVIT to Applications before it will run."
+# fi
+
 defaults write org.R-project.R NSAppSleepDisabled -bool YES
 export R_DIR="/Applications/iNZightVIT/iNZight.app/Contents/MacOS/"
-open -a R $R_DIR
+# open -a R $R_DIR

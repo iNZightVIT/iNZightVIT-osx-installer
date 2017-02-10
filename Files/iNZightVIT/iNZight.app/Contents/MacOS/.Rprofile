@@ -12,6 +12,23 @@ pkgs <- c("iNZight", "iNZightPlots", "iNZightMR",
 repo <- c("http://r.docker.stat.auckland.ac.nz/R",
           "http://cran.stat.auckland.ac.nz")
 
+## check GTK2.24 and XQuartz are installed ...
+# if (!dir.exists("/Library/Frameworks/GTK+.framework/Versions/2.24.X11")) {
+#   installGTK <- system("osascript -e 'display dialog \"iNZight cannot find GTK 2.24.\n\nWould you like to download and install it now?\" with title \"Updates Available\" buttons {\"Yes\", \"No\"} default button 2'", TRUE) == "button returned:Yes"
+# R
+#
+#   if (installGTK) {
+#     download.file("http://r.research.att.com/libs/GTK_2.24.17-X11.pkg",
+#                   "~/Downloads/GTK_2.24.17-X11.pkg")
+#     if (system("osascript -e 'display dialog \"GTK 2.24 has been downloaded to your Documents folder.\n\nWould you like to install it now?\n\n(Run iNZight again once GTK has been intalled).\" with title \"Updates Available\" buttons {\"Yes\", \"No\"} default button 2'", TRUE) == "button returned:Yes") {
+#       system("open ~/Downloads/GTK_2.24.17-X11.pkg")
+#       q("no")
+#     }
+#   }
+# }
+
+
+
 ## check iNZight installed ...
 if ( ! all(pkgs %in% utils::installed.packages()[, "Package"]) ) {
   cat("Installing iNZight files ...\n")
