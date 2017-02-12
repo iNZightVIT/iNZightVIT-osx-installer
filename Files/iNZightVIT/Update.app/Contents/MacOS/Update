@@ -9,7 +9,7 @@ if [ "$DIR" != "$INST" ]; then
   echo $CONT
   if [ "$CONT" = "button returned:Yes" ]; then
     mv "$DIR" "$INST"
-    open -a /Applications/iNZightVIT/iNZight.app
+    open -a /Applications/iNZightVIT/Update.app
   fi
   exit 0
 fi
