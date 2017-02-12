@@ -16,6 +16,7 @@ depends:
 	R -e "install.packages('Acinonyx', repo='http://rforge.net',type='source', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 
+DMGV := 1.0
 VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 2)
 DMG = iNZightVIT-mac-installer.dmg
 
@@ -47,7 +48,7 @@ createApp:
 
 uploadDMG:
 	chmod 775 iNZightVIT-mac-installer.dmg
-	scp iNZightVIT-mac-installer.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-mac-installer-$(VERSION).dmg
+	scp iNZightVIT-mac-installer.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-mac-installer-$(DMGV).dmg
 uploadApp:
 	chmod 775 iNZightVIT-selfinstall.tar.bz2
 	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/OSX/iNZightVIT-selfinstall-$(APPV).tar.bz2

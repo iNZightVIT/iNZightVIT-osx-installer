@@ -3,3 +3,4 @@
 *.Rapp.history
 *.tar.bz
 *.tar.bz2
+.DS_Store
