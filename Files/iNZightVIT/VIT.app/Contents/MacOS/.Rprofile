@@ -12,11 +12,11 @@ repo <- c("http://r.docker.stat.auckland.ac.nz/R",
 
 ## check VIT installed ...
 if (!all(pkgs %in% utils::installed.packages()[, "Package"])) {
-  cat("Please wait while VIT is installed ...\n")
+  cat("Please wait while the installation of VIT is finalized.\nThis may take a few moments.\n\n")
   utils::install.packages(pkgs, repos = repo,
                           lib = "/Applications/iNZightVIT/.library",
-                          type = "binary", dependencies = TRUE)
-  cat("\nDone!\n")
+                          quiet = TRUE, type = "binary", dependencies = TRUE)
+  cat("\nThat's it! VIT is ready to use and will launch momentarily.\n")
 }
 
 cat("Loading VIT ...\n\n")

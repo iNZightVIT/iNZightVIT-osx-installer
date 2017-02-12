@@ -29,13 +29,14 @@ createDMG:
 	@appdmg dmgbuilder.json $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
-APPV = 1.0
+APPV = 1.1
 createApp:
 	make addUpdate
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
 	@echo Copying Application folder, removing library ...
-	@cp -r Files/iNZightVIT iNZightVIT && rm -r iNZightVIT/.library/*
+	@cp -r Files/iNZightVIT iNZightVIT
+	@rm -rf iNZightVIT/.library/*
 	@cp README-self.Md iNZightVIT/README.Md
 	@echo Cleaning out muck ...
 	@rm -rf iNZightVIT/._* .DS_Store
