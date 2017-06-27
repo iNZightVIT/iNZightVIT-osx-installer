@@ -16,7 +16,7 @@ depends:
 	R -e "install.packages('Acinonyx', repo='http://rforge.net',type='source', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 
-DMGV := 1.0
+DMGV := 1.1
 VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 2)
 DMG = iNZightVIT-mac-installer.dmg
 
