@@ -10,7 +10,7 @@ pkgs <- c("iNZight", "iNZightPlots", "iNZightMR",
           "iNZightModules", "iNZightRegression", "iNZightTS",
           "iNZightTools")
 repo <- c("http://r.docker.stat.auckland.ac.nz/R",
-          "http://cran.stat.auckland.ac.nz")
+          "https://cran.rstudio.com")
 
 
 ## check iNZight installed ...
