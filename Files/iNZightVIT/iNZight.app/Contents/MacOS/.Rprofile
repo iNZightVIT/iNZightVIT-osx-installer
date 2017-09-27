@@ -13,15 +13,16 @@ repo <- c("http://r.docker.stat.auckland.ac.nz/R",
           "https://cran.rstudio.com")
 
 
-## check iNZight installed ...
-if ( ! all(pkgs %in% utils::installed.packages()[, "Package"]) ) {
+pkg.check <- suppressWarnings(sapply(pkgs, require, quietly = TRUE, character.only = TRUE))
+
+if (! all(pkg.check)) {
   cat("Please wait while iNZight finishes the installation by installing the latest packages.\nThis may take a few minutes.\n\n")
-#  suppressWarnings({suppressMessages({
-    utils::install.packages(pkgs, repos = repo,
-                            lib = "/Applications/iNZightVIT/.library", 
-                            type = "binary", dependencies = TRUE, quiet = TRUE)
-#  })})
+  x <- system("osascript -e 'tell app \"System Events\" to display dialog \"Please wait while iNZight installs dependencies. This may take a few minutes.\" buttons [\"OK\"]'", wait = FALSE)
+  utils::install.packages(pkgs, repos = repo,
+                          lib = "/Applications/iNZightVIT/.library",
+                          type = "binary", dependencies = TRUE, quiet = FALSE)
   cat("That's it! iNZight has finished installing!\n\n")
+  # msg <- system("osascript -e 'tell app \"System Events\" to display dialog \"iNZight has finished installing the necessary dependencies and will now launch.\" with title \"iNZight Installed\" giving up after 5 buttons [\"OK\"]'", wait = FALSE)
 }
 
 
