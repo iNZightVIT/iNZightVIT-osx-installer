@@ -1,0 +1,22 @@
+{
+  "name": "inzightvit-osx-installer",
+  "version": "1.0.0",
+  "description": "A [Packages](http://s.sudre.free.fr/Software/Packages/about.html) project to create an installer for Mac.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iNZightVIT/iNZightVIT-osx-installer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iNZightVIT/iNZightVIT-osx-installer/issues"
+  },
+  "homepage": "https://github.com/iNZightVIT/iNZightVIT-osx-installer#readme",
+  "devDependencies": {
+    "appdmg": "^0.5.2"
+  }
+}
