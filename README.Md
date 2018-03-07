@@ -5,10 +5,11 @@ A [Packages](http://s.sudre.free.fr/Software/Packages/about.html) project to cre
 
 ## Requirements
 
-1. XQuartz - everyone
-2. GTK2+ - everyone
-3. R 3.2.3 - anyone without R already
-4. iNZightVIT App - everyone - contains library for R-3.2.3
+1. XQuartz
+2. GTK2+
+3. R 3.4.3
+4. iNZightVIT App
+
 
 
 ## Installation

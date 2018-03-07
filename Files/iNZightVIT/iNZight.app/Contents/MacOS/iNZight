@@ -14,6 +14,10 @@
 #   exit 0
 # fi
 
-defaults write org.R-project.R NSAppSleepDisabled -bool YES
-export R_DIR="/Applications/iNZightVIT/iNZight.app/Contents/MacOS/"
-open -a R $R_DIR
+## 1. check packages are installed
+osascript -e "do shell script \"echo hello\" with administrator privileges" 
+
+
+# defaults write org.R-project.R NSAppSleepDisabled -bool YES
+# export R_DIR="/Applications/iNZightVIT/iNZight.app/Contents/MacOS/"
+# open -a R $R_DIR
