@@ -53,3 +53,10 @@ uploadDMG:
 uploadApp:
 	chmod 775 iNZightVIT-selfinstall.tar.bz2
 	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/macOS/iNZightVIT-selfinstall-$(APPV).tar.bz2
+
+
+clean:
+	@rm iNZightVIT-mac-installer.dmg
+	@rm iNZightVIT-selfinstall.tar.bz2
+
+.PHONY: clean
