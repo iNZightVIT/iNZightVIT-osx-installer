@@ -5,15 +5,29 @@ A [Packages](http://s.sudre.free.fr/Software/Packages/about.html) project to cre
 
 ## Requirements
 
-1. XQuartz
-2. GTK2+
-3. R 3.4.3
-4. iNZightVIT App
+- XQuartz
+- GTK2+
+- R 3.4.3
+- gfortran
+- iNZightVIT App
 
 
 
 ## Installation
 
+1. iNZightVIT/Install.app
+	- Install XQuartz, GTK2, R, and gfortran
+	- Create the ~.R/Makevars file (+ a file saying "Yes, iNZight created this!")
+	- Move iNZight.app, VIT.app, Update.app, and Uninstall.app into place
+	- Run the install packages command for .library folder
+	- Remove self?
+
+2. Run iNZight.app or VIT.app
+
+
+
+
+#### Old process
 1. If XQuartz present, don’t install
 2. If GTK2+ present, don’t install
 3. If `/Library/Frameworks/R.framework/Versions/3.*` installed, don’t install — if a version 2.y or earlier, require install (warning, etc)
