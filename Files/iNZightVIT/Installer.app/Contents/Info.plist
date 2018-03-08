@@ -11,7 +11,7 @@
 	<key>CFBundleIconFile</key>
 	<string>applet</string>
 	<key>CFBundleIdentifier</key>
-	<string>ac.nz.stat.inzight</string>
+	<string>ac.nz.stat.inzight_installer</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -19,9 +19,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>aplt</string>
+	<key>CFBundleVersion</key>
+	<string>2.0</string>
 	<key>LSMinimumSystemVersionByArchitecture</key>
 	<dict>
 		<key>x86_64</key>
@@ -44,7 +46,7 @@
 		<key>positionOfDivider</key>
 		<real>341</real>
 		<key>savedFrame</key>
-		<string>154 127 1224 747 0 0 1440 877 </string>
+		<string>153 127 1224 747 0 0 1440 877 </string>
 		<key>selectedTab</key>
 		<string>log</string>
 	</dict>

@@ -6,11 +6,10 @@ rule()
 
 ## set library path
 .libPaths("/Applications/iNZightVIT/.library")
-pkgs <- c("iNZight", "iNZightPlots", "iNZightMR",
-          "iNZightModules", "iNZightRegression", "iNZightTS",
-          "iNZightTools")
 repo <- c("http://r.docker.stat.auckland.ac.nz/R",
           "https://cran.rstudio.com")
+
+options(repos = repo)
 
 cat("Loading iNZight ...\n\n")
 
