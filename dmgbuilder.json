@@ -11,7 +11,7 @@
   "icon": "Files/iNZightVIT/iNZight.app/Contents/Resources/applet.icns",
   "format": "UDBZ",
   "contents": [
-    { "x": 400, "y": 328, "type": "file", "path": "Files/Installer" },
+    { "x": 400, "y": 328, "type": "file", "path": "Files/Installer.app" },
     { "x": 400, "y": 328, "type": "file", "path": "Files/.instfiles" },
     { "x": 670, "y": 328, "type": "link", "path": "/Applications" }
   ]
