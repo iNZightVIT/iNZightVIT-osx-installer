@@ -25,11 +25,11 @@ DMG = iNZightVIT-mac-installer.dmg
 
 createDMG:
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
-	hdiutil create -volname "iNZightVIT Installer" -srcfolder "iNZightVIT Mac Installer/build" -ov -format UDZO $(DMG)
+	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
 APPV = 2.0
-iDIR=iNZightVIT\ Mac\ Installer/iNZightVIT
+iDIR=Installer/iNZightVIT
 createApp:
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
@@ -37,7 +37,7 @@ createApp:
 	@rm -rf iNZightVIT
 	@mkdir -p iNZightVIT/.library
 	@echo Set icon on iNZight folder
-	@iNZightVIT\ Mac\ Installer/scripts/seticon -image iNZightVIT\ Mac\ Installer/img/Icon.icns -file iNZightVIT
+	@Installer/scripts/seticon -image Installer/img/Icon.icns -file iNZightVIT
 	@cp README-self.Md iNZightVIT/README.Md
 	@cp -r $(iDIR)/iNZight.app iNZightVIT
 	@cp -r $(iDIR)/VIT.app iNZightVIT
