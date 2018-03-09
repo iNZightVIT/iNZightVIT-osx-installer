@@ -1,7 +1,11 @@
-width <- options("width")$width
+## Version of this .Rprofile
+VERSION <- 2.0
+
+width <-getOption('width')
 center <- function(...) {
     msg <- paste(...)
-    paste0(paste0(rep(" ", width - 2 * nchar(msg)), collapse = ""), msg)
+
+    paste0(paste0(rep(" ", floor(0.5 * (width - nchar(msg)))), collapse = ""), msg)
 }
 rule <- function() cat(rep("=", width), "\n\n", sep = "")
 
@@ -11,6 +15,10 @@ LIB <- file.path(Sys.getenv('APPDIR'), ".library")
 repo <- c("http://r.docker.stat.auckland.ac.nz/R",
           "https://cran.rstudio.com")
 options(repos = repo)
+
+## Don't ask user to compile from source .. just do it!
+options(install.packages.compile.from.source = 'always')
+## to ensure we can build packages correctly ...
 Sys.setenv(PKG_CONFIG = 
     file.path("/Applications", "iNZightVIT", "Update.app",
               "Contents", "Resources", "pkg-config"))
@@ -18,8 +26,8 @@ Sys.setenv(PKG_CONFIG =
 installPkgs <- function(...) {
     cat(" * checking for installed dependencies \n")
     pkgs <- unlist(list(...))
-    to.install <- !suppressWarnings(
-        sapply(pkgs, requireNamespace, quietly = TRUE, character.only = TRUE)
+    to.install <- suppressWarnings(
+        !sapply(pkgs, requireNamespace, quietly = TRUE, character.only = TRUE)
     )
     if (any(to.install)) {
         x <- system("osascript -e 'tell app \"System Events\" to display dialog \"Please wait while iNZight installs dependencies. This may take a few minutes.\" buttons [\"OK\"]'", wait = FALSE)
@@ -29,23 +37,26 @@ installPkgs <- function(...) {
             "Please wait while I install some things ... \n\n",
             sep = "")
 
-        utils::install.packages(c('RGtk2', 'cairoDevice', 'gWidgets2RGtk2', 'gWidgetsRGtk2'), 
-            type = "source", dependencies = TRUE)
-
         inst <- pkgs[to.install]
-        utils::install.packages(inst, type = "binary", dependencies = TRUE)
+        utils::install.packages(inst, type = "both", dependencies = TRUE)
         cat("\n\nThat's it, everything is installed!\n")
         rule()
     }
 }
 
+## Add a 'capture.output' to require(RGtk2)
+# grep for GTK+ is headerless
+checkGTK <- function() {
+    rgtk <- capture.output(require(RGtk2))
+    if (any(grepl('headless', rgtk)))
+        stop(" * ERROR: you either haven't installed RGtk2, or you need to restart your Mac")
+}
+
 .First <- function() {
     app <- Sys.getenv('INZAPP')
     rule()
-    cat(center(" *** Welcome to", app, "*** \n"))
-
-    ## Add a 'capture.output' to require(RGtk2)
-    # grep for GTK+ is headerless
+    appt <- switch(app, 'Update' = 'the iNZight Updater', app)
+    cat(center(" *** Welcome to", appt, "*** \n\n"))
 
     switch(app,
         "iNZight" = {
@@ -53,6 +64,7 @@ installPkgs <- function(...) {
                         "iNZightModules", "iNZightRegression", "iNZightTS",
                         "iNZightTools")
             cat(" * loading iNZight \n")
+            checkGTK()
             suppressMessages(suppressPackageStartupMessages(library(iNZight)))
             cat(" * launching iNZight \n")
             suppressMessages(iNZight(disposeR = TRUE))
@@ -60,14 +72,17 @@ installPkgs <- function(...) {
         "VIT" = {
             installPkgs("vit")
             cat(" * loading VIT \n")
+            checkGTK()
             suppressMessages(suppressPackageStartupMessages(library(vit)))
             cat(" * launching VIT \n")
             suppressMessages(iNZightVIT(disposeR = TRUE))
         },
         "Update" = {
-            cat("* updating iNZightVIT \n")
-            VERSION <- 1.0
+            cat(" * updating iNZightVIT \n")
+            OS <- 'osx'
             source("https://raw.githubusercontent.com/iNZightVIT/dev/master/update.R")
+            # update.packages(ask = FALSE, type = "both", dependencies = TRUE)
+            cat(" * iNZight is up to date! \n")
         })
 
     # Only want to hide iNZight and VIT 

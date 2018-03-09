@@ -20,17 +20,19 @@ DMGV := 2.0
 VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 2)
 DMG = iNZightVIT-mac-installer.dmg
 
-# addUpdate:
-# 	cp ../dev/updateProfile-osx.R Files/iNZightVIT/.instfiles/Update.app/Contents/MacOS/.Rprofile
+iDIR=Installer/iNZightVIT
+addUpdate:
+	cp ../dev/updateProfile-osx.R $(iDIR)/.Rprofile
 
 createDMG:
+	@addUpdate
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
 APPV = 2.0
-iDIR=Installer/iNZightVIT
 createApp:
+	@make addUpdate
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
 	@echo Adding Application folder, removing library ...
@@ -39,6 +41,7 @@ createApp:
 	@echo Set icon on iNZight folder
 	@Installer/scripts/seticon -image Installer/img/Icon.icns -file iNZightVIT
 	@cp README-self.Md iNZightVIT/README.Md
+	@cp $(iDIR)/.Rprofile iNZightVIT
 	@cp -r $(iDIR)/iNZight.app iNZightVIT
 	@cp -r $(iDIR)/VIT.app iNZightVIT
 	@cp -r $(iDIR)/Update.app iNZightVIT
