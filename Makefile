@@ -25,7 +25,7 @@ addUpdate:
 	cp ../dev/updateProfile-osx.R $(iDIR)/.Rprofile
 
 createDMG:
-	@addUpdate
+	@make addUpdate
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO $(DMG)
 
