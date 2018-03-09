@@ -1,0 +1,9 @@
+#!/bin/bash
+
+defaults write org.R-project.R NSAppSleepDisabled -bool YES
+
+export APPDIR=$(cd "$(dirname "$0")"; cd ../../../; pwd)
+export INZAPP="iNZight"
+open -a R "$APPDIR"
+
+osascript -e 'display notification "iNZight is running"'

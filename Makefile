@@ -62,5 +62,6 @@ uploadApp:
 clean:
 	@rm iNZightVIT-mac-installer.dmg
 	@rm iNZightVIT-selfinstall.tar.bz2
+	@rm -rf iNZightVIT
 
 .PHONY: clean
