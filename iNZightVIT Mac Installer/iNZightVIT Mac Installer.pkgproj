@@ -22,14 +22,32 @@
 										<dict>
 											<key>CHILDREN</key>
 											<array/>
+											<key>EXPANDED</key>
+											<true/>
 											<key>GID</key>
-											<integer>12</integer>
+											<integer>80</integer>
 											<key>PATH</key>
 											<string>iNZightVIT/.library</string>
 											<key>PATH_TYPE</key>
 											<integer>1</integer>
 											<key>PERMISSIONS</key>
 											<integer>511</integer>
+											<key>TYPE</key>
+											<integer>3</integer>
+											<key>UID</key>
+											<integer>0</integer>
+										</dict>
+										<dict>
+											<key>CHILDREN</key>
+											<array/>
+											<key>GID</key>
+											<integer>80</integer>
+											<key>PATH</key>
+											<string>iNZightVIT/.Rprofile</string>
+											<key>PATH_TYPE</key>
+											<integer>1</integer>
+											<key>PERMISSIONS</key>
+											<integer>420</integer>
 											<key>TYPE</key>
 											<integer>3</integer>
 											<key>UID</key>
@@ -615,7 +633,7 @@
 			<key>PACKAGE_SETTINGS</key>
 			<dict>
 				<key>AUTHENTICATION</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>CONCLUSION_ACTION</key>
 				<integer>0</integer>
 				<key>FOLLOW_SYMBOLIC_LINKS</key>

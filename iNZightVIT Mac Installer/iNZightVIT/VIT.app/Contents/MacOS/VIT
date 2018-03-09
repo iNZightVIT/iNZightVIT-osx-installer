@@ -3,6 +3,6 @@
 defaults write org.R-project.R NSAppSleepDisabled -bool YES
 
 export APPDIR=$(cd "$(dirname "$0")"; cd ../../../; pwd)
-export INZAPP="iNZight"
+export INZAPP="VIT"
 open -a R "$APPDIR"
 
