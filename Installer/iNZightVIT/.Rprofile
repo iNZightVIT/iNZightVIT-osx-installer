@@ -79,10 +79,10 @@ checkGTK <- function() {
         },
         "Update" = {
             cat(" * updating iNZightVIT \n")
-            OS <- 'osx'
+            OS <- "osx"
             source("https://raw.githubusercontent.com/iNZightVIT/dev/master/update.R")
-            # update.packages(ask = FALSE, type = "both", dependencies = TRUE)
-            cat(" * iNZight is up to date! \n")
+            if (VERSION == LATEST)
+                cat(" * iNZight is up to date! \n")
         })
 
     # Only want to hide iNZight and VIT 
