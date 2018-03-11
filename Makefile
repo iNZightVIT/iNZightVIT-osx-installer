@@ -21,18 +21,14 @@ VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 
 DMG = iNZightVIT-mac-installer.dmg
 
 iDIR=Installer/iNZightVIT
-addUpdate:
-	cp ../dev/updateProfile-osx.R $(iDIR)/.Rprofile
 
 createDMG:
-	@make addUpdate
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
 APPV = 2.0
 createApp:
-	@make addUpdate
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
 	@echo Adding Application folder, removing library ...
