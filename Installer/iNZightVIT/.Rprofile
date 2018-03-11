@@ -52,11 +52,23 @@ checkGTK <- function() {
         stop(" * ERROR: you either haven't installed RGtk2, or you need to restart your Mac")
 }
 
+
 .First <- function() {
     app <- Sys.getenv('INZAPP')
     rule()
     appt <- switch(app, 'Update' = 'the iNZight Updater', app)
     cat(center(" *** Welcome to", appt, "*** \n\n"))
+
+    ## Create the iNZight directory
+    if (!dir.exists('~/Documents/iNZightVIT')) {
+        if (dir.create('~/Documents/iNZightVIT', showWarnings = FALSE)) {
+            setwd('~/Documents/iNZightVIT')
+            dir.create('Saved Data', showWarnings = FALSE)
+            dir.create('Saved Plots', showWarnings = FALSE)
+        }
+    } else {
+        setwd('~/Documents/iNZightVIT')
+    }
 
     switch(app,
         "iNZight" = {
