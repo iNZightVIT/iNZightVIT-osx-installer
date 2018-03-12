@@ -25,29 +25,45 @@ Sys.setenv(PKG_CONFIG =
 
 installPkgs <- function(...) {
     cat(" * checking for installed dependencies \n")
+    utils::flush.console()
     pkgs <- unlist(list(...))
     to.install <- suppressWarnings(
-        !sapply(pkgs, requireNamespace, quietly = TRUE, character.only = TRUE)
+        !sapply(pkgs, requireNamespace, quietly = TRUE)
     )
     if (any(to.install)) {
-        x <- system("osascript -e 'tell app \"System Events\" to display dialog \"Please wait while iNZight installs dependencies. This may take a few minutes.\" buttons [\"OK\"]'", wait = FALSE)
-        rule()
-        cat("Kia ora!\n\nIt looks like this is your first time using ", 
+        # x <- system("osascript -e 'tell app \"System Events\" to display dialog \"Please wait while iNZight installs dependencies. This may take a few minutes.\" buttons [\"OK\"]'", wait = FALSE)
+        # rule()
+        cat("   Kia ora!\n\nIt looks like this is your first time using ", 
             Sys.getenv('INZAPP'), ".\n",
-            "Please wait while I install some things ... \n\n",
+            "   Please wait while I install some things ... \n\n",
             sep = "")
+        utils::flush.console()
 
         inst <- pkgs[to.install]
-        utils::install.packages(inst, type = "both", dependencies = TRUE)
-        cat("\n\nThat's it, everything is installed!\n")
+        deps <- unique(do.call(c, tools::package_dependencies(inst, which = "most")))
+        deps <- deps[!sapply(deps, requireNamespace, quietly = TRUE)]
+        pkgs <- unique(c(deps, inst))
+        pb <- txtProgressBar(0, length(pkgs), style = 3)
+        for (i in seq_along(1:length(pkgs))) {
+            suppressWarnings(suppressMessages(
+                utils::install.packages(inst, type = "both", dependencies = TRUE,
+                                        quiet = TRUE)
+            ))
+            setTxtProgressBar(pb, i)
+        }
+        close(pb)
+        cat("\n * installation complete!\n")
         rule()
     }
 }
 
 ## Add a 'capture.output' to require(RGtk2)
 # grep for GTK+ is headerless
-checkGTK <- function() {
-    rgtk <- capture.output(require(RGtk2))
+.checkGTK <- function() {
+    ## boundGTKVersion() ????
+    rgtk <- suppressPackageStartupMessages(suppressWarnings(
+        capture.output(require(RGtk2))
+    ))
     if (any(grepl('headless', rgtk)))
         stop(" * ERROR: you either haven't installed RGtk2, or you need to restart your Mac")
 }
@@ -58,6 +74,7 @@ checkGTK <- function() {
     rule()
     appt <- switch(app, 'Update' = 'the iNZight Updater', app)
     cat(center(" *** Welcome to", appt, "*** \n\n"))
+    utils::flush.console()
 
     ## Create the iNZight directory
     if (!dir.exists('~/Documents/iNZightVIT')) {
@@ -76,21 +93,26 @@ checkGTK <- function() {
                         "iNZightModules", "iNZightRegression", "iNZightTS",
                         "iNZightTools")
             cat(" * loading iNZight \n")
-            checkGTK()
+            utils::flush.console()
+            .checkGTK()
             suppressMessages(suppressPackageStartupMessages(library(iNZight)))
             cat(" * launching iNZight \n")
+            utils::flush.console()
             suppressMessages(iNZight(disposeR = TRUE))
         },
         "VIT" = {
             installPkgs("vit")
             cat(" * loading VIT \n")
-            checkGTK()
+            utils::flush.console()
+            .checkGTK()
             suppressMessages(suppressPackageStartupMessages(library(vit)))
             cat(" * launching VIT \n")
+            utils::flush.console()
             suppressMessages(iNZightVIT(disposeR = TRUE))
         },
         "Update" = {
             cat(" * updating iNZightVIT \n")
+            utils::flush.console()
             OS <- "osx"
             source("https://raw.githubusercontent.com/iNZightVIT/dev/master/update.R")
             if (VERSION == LATEST)
