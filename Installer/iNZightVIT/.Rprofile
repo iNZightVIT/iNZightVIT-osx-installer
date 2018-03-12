@@ -31,8 +31,6 @@ installPkgs <- function(...) {
         !sapply(pkgs, requireNamespace, quietly = TRUE)
     )
     if (any(to.install)) {
-        # x <- system("osascript -e 'tell app \"System Events\" to display dialog \"Please wait while iNZight installs dependencies. This may take a few minutes.\" buttons [\"OK\"]'", wait = FALSE)
-        # rule()
         cat("   Kia ora!\n\n   It looks like this is your first time using ", 
             Sys.getenv('INZAPP'), ".\n",
             "   Please wait while I install some things ... \n\n",
@@ -40,7 +38,8 @@ installPkgs <- function(...) {
         utils::flush.console()
 
         ## No idea why this package doesn't install ...
-        if (!requireNamespace('scales')) install.packages('scales', quietly = TRUE)
+        if (!requireNamespace('scales', quietly = TRUE)) 
+            utils::install.packages("scales", repos = options()$repos, quiet = TRUE)
 
         inst <- pkgs[to.install]
         deps <- unique(do.call(c, tools::package_dependencies(inst, which = "most")))
@@ -56,7 +55,6 @@ installPkgs <- function(...) {
         }
         close(pb)
         cat("\n * installation complete!\n")
-        rule()
     }
 }
 
