@@ -23,6 +23,7 @@ DMG = iNZightVIT-mac-installer.dmg
 iDIR=Installer/iNZightVIT
 
 createDMG:
+	@cd Installer; packagesbuild "iNZightVIT Mac Installer.pkgproj"
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO $(DMG)
 
