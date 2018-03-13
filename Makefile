@@ -25,7 +25,7 @@ iDIR=Installer/iNZightVIT
 createDMG:
 	@cd Installer; packagesbuild "iNZightVIT Mac Installer.pkgproj"
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
-	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO $(DMG)
+	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO -fs HFS+ $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
 APPV = 2.0
