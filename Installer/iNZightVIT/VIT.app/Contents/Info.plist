@@ -19,10 +19,10 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>VIT for Mac 2.0</string>
+	<string>VIT for macOS 3.0</string>
 	<key>CFBundleSignature</key>
 	<string>aplt</string>
 	<key>CFBundleVersion</key>
-	<string>2.0</string>
+	<string>3.0</string>
 </dict>
 </plist>

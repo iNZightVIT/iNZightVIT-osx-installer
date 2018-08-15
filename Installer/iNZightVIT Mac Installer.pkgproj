@@ -72997,7 +72997,7 @@
 				<key>USE_HFS+_COMPRESSION</key>
 				<false/>
 				<key>VERSION</key>
-				<string>3.3</string>
+				<string>3.0</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -74435,7 +74435,7 @@
 				<key>FOLLOW_SYMBOLIC_LINKS</key>
 				<true/>
 				<key>IDENTIFIER</key>
-				<string>org.r-project.R.el-capitan.fw.pkg</string>
+				<string>org.r-project.R-framework</string>
 				<key>LOCATION</key>
 				<integer>0</integer>
 				<key>NAME</key>
@@ -74449,7 +74449,7 @@
 				<key>USE_HFS+_COMPRESSION</key>
 				<false/>
 				<key>VERSION</key>
-				<string>30270336</string>
+				<string>3.5.1</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
