@@ -7,7 +7,7 @@ rule()
 ## set library path
 .libPaths("/Applications/iNZightVIT/.library")
 pkgs <- c("vit")
-repo <- c("http://r.docker.stat.auckland.ac.nz/R",
+repo <- c("https://r.docker.stat.auckland.ac.nz",
           "http://cran.stat.auckland.ac.nz")
 
 ## check VIT installed ...

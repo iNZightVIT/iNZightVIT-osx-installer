@@ -9,7 +9,7 @@ rule()
 pkgs <- c("iNZight", "iNZightPlots", "iNZightMR",
           "iNZightModules", "iNZightRegression", "iNZightTS",
           "iNZightTools")
-repo <- c("http://r.docker.stat.auckland.ac.nz/R",
+repo <- c("https://r.docker.stat.auckland.ac.nz",
           "https://cran.rstudio.com")
 
 
