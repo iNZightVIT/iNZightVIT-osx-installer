@@ -16,7 +16,7 @@ depends:
 	R -e "install.packages('Acinonyx', repo='http://rforge.net',type='source', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 
-DMGV := 2.0
+DMGV := 3.0
 VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 2)
 DMG = iNZightVIT-mac-installer.dmg
 
@@ -28,7 +28,7 @@ createDMG:
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO -fs HFS+ $(DMG)
 
 APP = iNZightVIT-selfinstall.tar.bz2
-APPV = 2.0
+APPV = 3.0
 createApp:
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;

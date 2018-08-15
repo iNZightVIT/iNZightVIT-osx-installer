@@ -4,6 +4,7 @@
 *.tar.bz
 *.tar.bz2
 .DS_Store
+*.iso
 
 node_modules
 build
