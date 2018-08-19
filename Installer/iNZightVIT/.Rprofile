@@ -1,5 +1,5 @@
 ## Version of this .Rprofile
-VERSION <- 2.0
+VERSION <- 3.0
 
 width <-getOption('width')
 center <- function(...) {
@@ -12,16 +12,16 @@ rule <- function() cat(rep("=", width), "\n\n", sep = "")
 ## set library path
 LIB <- file.path(Sys.getenv('APPDIR'), ".library")
 .libPaths(LIB)
-repo <- c("http://r.docker.stat.auckland.ac.nz/R",
+repo <- c("https://r.docker.stat.auckland.ac.nz",
           "https://cran.rstudio.com")
 options(repos = repo)
 
 ## Don't ask user to compile from source .. just do it!
 options(install.packages.compile.from.source = 'always')
 ## to ensure we can build packages correctly ...
-Sys.setenv(PKG_CONFIG = 
-    file.path("/Applications", "iNZightVIT", "Update.app",
-              "Contents", "Resources", "pkg-config"))
+# Sys.setenv(PKG_CONFIG = 
+#     file.path("/Applications", "iNZightVIT", "Update.app",
+#               "Contents", "Resources", "pkg-config"))
 
 installPkgs <- function(...) {
     cat(" * checking for installed dependencies \n")
@@ -38,8 +38,8 @@ installPkgs <- function(...) {
         utils::flush.console()
 
         ## No idea why this package doesn't install ...
-        if (!requireNamespace('scales', quietly = TRUE)) 
-            utils::install.packages("scales", repos = options()$repos, quiet = TRUE)
+        # if (!requireNamespace('scales', quietly = TRUE)) 
+        #     utils::install.packages("scales", repos = options()$repos, quiet = TRUE)
 
         inst <- pkgs[to.install]
         deps <- unique(do.call(c, tools::package_dependencies(inst, which = "most")))
@@ -92,7 +92,7 @@ installPkgs <- function(...) {
         "iNZight" = {
             installPkgs("iNZight", "iNZightPlots", "iNZightMR",
                         "iNZightModules", "iNZightRegression", "iNZightTS",
-                        "iNZightTools")
+                        "iNZightTools", "scales")
             cat(" * loading iNZight \n")
             utils::flush.console()
             .checkGTK()
