@@ -2,8 +2,6 @@
 
 defaults write org.R-project.R NSAppSleepDisabled -bool YES
 
-export APPDIR=$(cd "$(dirname "$0")"; cd ../../../; pwd)
+export APPDIR="/Applications/iNZightVIT"
 export INZAPP="iNZight"
-export PATH=$APPDIR/.tools/bin/clang6/bin:$APPDIR/.tools/bin/gfortran/bin:$PATH
 open -a R "$APPDIR"
-
