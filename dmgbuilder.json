@@ -1,6 +1,6 @@
 {
-  "title": "iNZightVIT Installer",
-  "background": "background.jpg",
+  "title": "iNZightVIT for Mac",
+  "background": "background.png",
   "window": {
     "size": {
       "width": 800,
@@ -8,13 +8,10 @@
     }
   },
   "icon-size": 48,
-  "icon": "Files/iNZightVIT/iNZight.app/Contents/Resources/Icon.icns",
-  "format": "UDBZ",
+  "icon": "Installer/img/Icon.icns",
+  "format": "UDZO",
   "contents": [
-    { "x": 400, "y": 174, "type": "file", "path": "Files/GTK_2.24.17-X11.pkg" },
-    { "x": 545, "y": 174, "type": "file", "path": "Files/XQuartz-2.7.11.pkg" },
-    { "x": 670, "y": 174, "type": "file", "path": "Files/R-3.4.3.pkg" },
-    { "x": 400, "y": 328, "type": "file", "path": "Files/iNZightVIT" },
-    { "x": 670, "y": 328, "type": "link", "path": "/Applications" }
+    { "x": 250, "y": 294, "type": "file", "path": "iNZightVIT" },
+    { "x": 550, "y": 294, "type": "link", "path": "/Applications" }
   ]
 }
