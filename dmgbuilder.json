@@ -1,6 +1,6 @@
 {
-  "title": "iNZightVIT Installer",
-  "background": "background.jpg",
+  "title": "iNZightVIT for Mac",
+  "background": "background.png",
   "window": {
     "size": {
       "width": 800,
@@ -8,11 +8,10 @@
     }
   },
   "icon-size": 48,
-  "icon": "Files/iNZightVIT/iNZight.app/Contents/Resources/applet.icns",
-  "format": "UDBZ",
+  "icon": "Installer/img/Icon.icns",
+  "format": "UDZO",
   "contents": [
-    { "x": 400, "y": 328, "type": "file", "path": "Files/Installer.app" },
-    { "x": 400, "y": 328, "type": "file", "path": "Files/.instfiles" },
-    { "x": 670, "y": 328, "type": "link", "path": "/Applications" }
+    { "x": 250, "y": 294, "type": "file", "path": "iNZightVIT" },
+    { "x": 550, "y": 294, "type": "link", "path": "/Applications" }
   ]
 }

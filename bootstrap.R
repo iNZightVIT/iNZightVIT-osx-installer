@@ -48,8 +48,9 @@ x <- apply(pkgs, 1, function(pkg) {
     unlink(pkg[2])
 })
 
-cat(" * fetching Acinonyx\n")
-untar("../Acinonyx_3.0-0.tar.gz", exdir = pkglib)
+cat(" * Installing Acinonyx\n")
+install.packages('Acinonyx', lib = pkglib, repos = 'http://rforge.net', type = 'binary')
+# untar("../Acinonyx_3.0-0.tar.gz", exdir = pkglib)
 
 ## then try install missing ...
 if (length(missing) > 0) {
