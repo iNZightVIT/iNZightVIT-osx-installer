@@ -2,9 +2,12 @@
 *.pkg
 *.Rapp.history
 *.tar.bz
+*.tar.gz
 *.tar.bz2
 .DS_Store
 *.iso
 
 node_modules
 build
+
+Installer/iNZightVIT/.library/*

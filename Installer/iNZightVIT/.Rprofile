@@ -14,16 +14,20 @@ LIB <- file.path(Sys.getenv('APPDIR'), ".library")
 .libPaths(LIB)
 repo <- c("https://r.docker.stat.auckland.ac.nz",
           "https://cran.rstudio.com")
-options(repos = repo)
+# options(repos = repo, install.packages.check.source = "no")
 
 ## Don't ask user to compile from source .. just do it!
-options(install.packages.compile.from.source = 'always')
+# options(install.packages.compile.from.source = 'always')
 ## to ensure we can build packages correctly ...
 # Sys.setenv(PKG_CONFIG = 
 #     file.path("/Applications", "iNZightVIT", "Update.app",
 #               "Contents", "Resources", "pkg-config"))
 
 installPkgs <- function(...) {
+    if (getRversion() < numeric_version(3.3) ||
+        getRversion() >= numeric_version(3.4)) {
+        stop("Unfortunately iNZight only runs on R 3.3. Please check the website FAQ for info.")
+    }
     cat(" * checking for installed dependencies \n")
     utils::flush.console()
     pkgs <- unlist(list(...))
@@ -37,19 +41,16 @@ installPkgs <- function(...) {
             sep = "")
         utils::flush.console()
 
-        ## No idea why this package doesn't install ...
-        # if (!requireNamespace('scales', quietly = TRUE)) 
-        #     utils::install.packages("scales", repos = options()$repos, quiet = TRUE)
-
         inst <- pkgs[to.install]
-        deps <- unique(do.call(c, tools::package_dependencies(inst, which = "most")))
+        ap <- utils::available.packages(type = "mac.binary.mavericks")
+        deps <- unique(do.call(c, tools::package_dependencies(inst, db = ap, which = "most")))
         deps <- deps[!sapply(deps, requireNamespace, quietly = TRUE)]
         pkgs <- unique(c(deps, inst))
         pb <- txtProgressBar(0, length(pkgs), style = 3)
         for (i in seq_along(1:length(pkgs))) {
             suppressWarnings(suppressMessages(
-                utils::install.packages(inst, type = "both", dependencies = TRUE,
-                                        quiet = TRUE)
+                utils::install.packages(pkgs[i], type = "mac.binary.mavericks", 
+                                        dependencies = TRUE, quiet = TRUE)
             ))
             setTxtProgressBar(pb, i)
         }
@@ -81,18 +82,20 @@ installPkgs <- function(...) {
     if (!dir.exists('~/Documents/iNZightVIT')) {
         if (dir.create('~/Documents/iNZightVIT', showWarnings = FALSE)) {
             setwd('~/Documents/iNZightVIT')
-            dir.create('Saved Data', showWarnings = FALSE)
-            dir.create('Saved Plots', showWarnings = FALSE)
+            if (!dir.exists('Saved Data'))
+                dir.create('Saved Data', showWarnings = FALSE)
+            if (!dir.exists('Saved Plots'))
+                dir.create('Saved Plots', showWarnings = FALSE)
         }
     } else {
         setwd('~/Documents/iNZightVIT')
     }
-
+    
     switch(app,
         "iNZight" = {
-            installPkgs("iNZight", "iNZightPlots", "iNZightMR",
-                        "iNZightModules", "iNZightRegression", "iNZightTS",
-                        "iNZightTools", "scales")
+            # installPkgs("iNZight", "iNZightPlots", "iNZightMR",
+            #             "iNZightModules", "iNZightRegression", "iNZightTS",
+            #             "iNZightTools", "scales")
             cat(" * loading iNZight \n")
             utils::flush.console()
             .checkGTK()
@@ -102,7 +105,7 @@ installPkgs <- function(...) {
             suppressMessages(iNZight(disposeR = TRUE))
         },
         "VIT" = {
-            installPkgs("vit")
+            # installPkgs("vit")
             cat(" * loading VIT \n")
             utils::flush.console()
             .checkGTK()

@@ -3,17 +3,19 @@
 #########
 
 
-
 install:
-	R -e "install.packages(c('iNZightMR', 'iNZightTS', 'iNZightTools', 'iNZightPlots', 'iNZightRegression', 'iNZightPlots', 'iNZight', 'iNZightModules', 'vit', 'FutureLearnData'), repos = c('http://r.docker.stat.auckland.ac.nz/R', 'http://cran.stat.auckland.ac.nz', 'http://rforge.net'), dependencies = TRUE, lib = '~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
+	@R --slave -f "bootstrap.R"
+
+# install:
+# 	R -e "install.packages(c('iNZightMR', 'iNZightTS', 'iNZightTools', 'iNZightPlots', 'iNZightRegression', 'iNZightPlots', 'iNZight', 'iNZightModules', 'vit', 'FutureLearnData'), repos = c('https://r.docker.stat.auckland.ac.nz', 'http://cran.stat.auckland.ac.nz', 'http://rforge.net'), dependencies = TRUE, lib = '~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library', type = 'mac.binary.mavericks")"
+# 	R -e "install.packages('Acinonyx', repo = 'http://rforge.net', type = 'source', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 update:
 	R -e "install.packages(paste0('~/iNZight/', c('iNZightMR', 'iNZightTS', 'iNZightTools', 'iNZightPlots', 'iNZightRegression', 'iNZightPlots', 'iNZight', 'iNZightModules', 'vit', 'FutureLearnData')), repos = NULL, type = 'source', lib = '~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 
-depends:
-	R -e "install.packages(c('gWidgets2', 'gWidgets2RGtk2', 'hextri', 'dichromat', 'viridis', 'RColorBrewer', 'gpairs', 'objectProperties'), repos='http://cran.stat.auckland.ac.nz', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
-	R -e "install.packages('Acinonyx', repo='http://rforge.net',type='source', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
+# depends:
+# 	R -e "install.packages(c('gWidgets2', 'gWidgets2RGtk2', 'hextri', 'dichromat', 'viridis', 'RColorBrewer', 'gpairs', 'objectProperties'), repos='http://cran.stat.auckland.ac.nz', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 
 DMGV := 3.0
@@ -27,14 +29,14 @@ createDMG:
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO -fs HFS+ $(DMG)
 
-APP = iNZightVIT-selfinstall.tar.bz2
+APP = iNZightVIT-macapp.tar.bz2
 APPV = 3.0
 createApp:
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
 	@echo Adding Application folder, removing library ...
 	@rm -rf iNZightVIT
-	@mkdir -p iNZightVIT/.library
+	@mkdir iNZightVIT
 	@echo Set icon on iNZight folder
 	@Installer/scripts/seticon -image Installer/img/Icon.icns -file iNZightVIT
 	@cp README-self.Md iNZightVIT/README.Md
@@ -42,6 +44,7 @@ createApp:
 	@cp -r $(iDIR)/iNZight.app iNZightVIT
 	@cp -r $(iDIR)/VIT.app iNZightVIT
 	@cp -r $(iDIR)/Update.app iNZightVIT
+	@cp -r $(iDIR)/.library iNZightVIT
 	@echo Archiving folder ...
 	@tar -cjf $(APP) iNZightVIT
 	@echo Cleaning up ...
@@ -49,12 +52,12 @@ createApp:
 	@echo Done
 
 
-uploadDMG:
-	chmod 775 iNZightVIT-mac-installer.dmg
-	scp iNZightVIT-mac-installer.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/macOS/iNZightVIT-mac-installer-$(DMGV).dmg
-uploadApp:
-	chmod 775 iNZightVIT-selfinstall.tar.bz2
-	scp iNZightVIT-selfinstall.tar.bz2 tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/macOS/iNZightVIT-selfinstall-$(APPV).tar.bz2
+# uploadDMG:
+# 	chmod 775 iNZightVIT-mac-installer.dmg
+# 	scp iNZightVIT-mac-installer.dmg tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/macOS/iNZightVIT-mac-installer-$(DMGV).dmg
+# uploadApp:
+# 	chmod 775 $(APP)
+# 	scp $(APP) tell029@login02.fos.auckland.ac.nz:/mnt/tell029/web/homepages.stat/inzight-www/iNZight/downloads/macOS/iNZightVIT-selfinstall-$(APPV).tar.bz2
 
 
 clean:
