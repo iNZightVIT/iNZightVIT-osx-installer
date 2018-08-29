@@ -18,9 +18,9 @@ update:
 # 	R -e "install.packages(c('gWidgets2', 'gWidgets2RGtk2', 'hextri', 'dichromat', 'viridis', 'RColorBrewer', 'gpairs', 'objectProperties'), repos='http://cran.stat.auckland.ac.nz', lib='~/iNZight/iNZightVIT-osx-installer/Files/iNZightVIT/.library')"
 
 
-DMGV := 3.0
+# DMGV := 3.0
 VERSION ?= $(shell grep -i \^version ../iNZight/DESCRIPTION | cut -d : -d \  -f 2)
-DMG = iNZightVIT-mac-installer.dmg
+# DMG = iNZightVIT-mac-installer.dmg
 
 iDIR=Installer/iNZightVIT
 
@@ -29,8 +29,7 @@ createDMG:
 	@if [ -f $(DMG) ]; then rm $(DMG); fi;
 	hdiutil create -volname "iNZightVIT Installer" -srcfolder "Installer/build" -ov -format UDZO -fs HFS+ $(DMG)
 
-APP = iNZightVIT-macapp.tar.bz2
-APPV = 3.0
+APP = iNZightVIT-mac-$(VERSION).tar.bz2
 createApp:
 	@echo Removing old version ...
 	@if [ -f $(APP) ]; then rm $(APP); fi;
@@ -49,6 +48,8 @@ createApp:
 	@tar -cjf $(APP) iNZightVIT
 	@echo Cleaning up ...
 	@rm -rf iNZightVIT
+	@echo Moving to Dropbox ...
+	@mv $(APP) ~/Dropbox/iNZight/$(APP)
 	@echo Done
 
 
