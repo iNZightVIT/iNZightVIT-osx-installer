@@ -8,6 +8,13 @@ pkgversions <- installed.packages(pkglib)[, 'Version']
 repos <- c('https://r.docker.stat.auckland.ac.nz', 'https://cran.stat.auckland.ac.nz')
 if (!requireNamespace('packrat', quietly = TRUE)) install.packages('packrat', repos = repos[2])
 if (!requireNamespace('devtools', quietly = TRUE)) install.packages('devtools', repos = repos[2])
+if (!requireNamespace('readr', quietly = TRUE) ||
+    packageVersion('readr') < numeric_version('1.2')) {
+    install.packages('readr', repos = repos)
+    ## copy to `pkglib`
+    if (dir.exists(file.path(pkglib, 'readr'))) unlink(file.path(pkglib, 'readr'))
+    file.copy(file.path(.libPaths()[1], 'readr'), file.path(pkglib, 'readr'), recursive = TRUE)
+}
 
 srclib <- .libPaths()[1]
 inzpkgs <- c('iNZight', 'iNZightPlots', 'iNZightModules', 'iNZightTools',
